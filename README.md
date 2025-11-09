@@ -1,4 +1,5 @@
 𝒜 (RING & STAR) <br>
+
 <img width="292" height="224" alt="A" src="https://github.com/user-attachments/assets/46cdf0cb-a455-4f83-bcde-c46b150407d5" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img width="294" height="246" alt="AA" src="https://github.com/user-attachments/assets/a33df5a3-af1b-439d-8432-7a260eaccce6" /> <br>
 
 (Take 1st Cable)
@@ -7,11 +8,11 @@
 3)PC2→Desktop→IP Config→IP Address=172.16.0.3 <br> 
 4)PC3→Desktop→IP Config→IP Address=172.16.0.4 <br> 
 
-###########################################################################################################<br>
+#####################################################################################<br>
 
 𝕭 (Mesh & BUS) <br>
 
-<img width="298" height="222" alt="B" src="https://github.com/user-attachments/assets/8d672833-4e0c-487c-8944-f9d084324a35" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <img width="557" height="160" alt="BB" src="https://github.com/user-attachments/assets/e12c5689-26a1-4057-9d6d-b05d9c2ce5fe" />
+<img width="298" height="222" alt="B" src="https://github.com/user-attachments/assets/8d672833-4e0c-487c-8944-f9d084324a35" />   <img width="557" height="160" alt="BB" src="https://github.com/user-attachments/assets/e12c5689-26a1-4057-9d6d-b05d9c2ce5fe" />
  <br>
 
 (pc)Fast Ethernet 0 → (switch)Fast Ethernet 0/1 {same All} <br>
@@ -20,7 +21,7 @@ then Connect switches <br>
 Then config PCs as 𝒜 <br>
 to send message (PC→Desktop→Command prompt→Ping 192.168.0.5)
 
-###########################################################################################################<br>
+#####################################################################################<br>
 
 𝓒 (layer 2 Switch ) <br>
 
@@ -32,16 +33,16 @@ then click (AT INTERFACE) fastEthernet0→ Ip Addtess:192.168.1.1 (change ip for
 Router→Config→Interface:gigabit Ethernet 0/0 (same for 0/1) → port Status=ON → IP Address =(Default Gateway) <br>
 to send message use cmd prompt → Ping (IP Address) <br>
 
-###########################################################################################################<br>
+#####################################################################################<br>
 
 𝕯 (WAN) <br>
 
-###########################################################################################################<br>
+#####################################################################################<br>
 
 𝓔 <br>
 
 
-###########################################################################################################<br>
+#####################################################################################<br>
 
 𝓕 (HTTP,HTTPS,FTP) <br>
 
@@ -52,7 +53,8 @@ pc1→Desktop→IP Config→IPV4 Address=10.10.10.1 <br>
 pc2→Desktop→IP Config→IPV4 Address=10.10.10.2 <br>
 then Server→Services(Off other services)→FTP(set username & Pass ,click add)br>
 pc→Desktop→cmd prompt→ FTP 10.10.10.0 (then enter userid and pass)(dir,help,put) <br>
-###########################################################################################################<br>
+
+#####################################################################################<br>
 
 𝓖 (SSL) <br>
 
@@ -61,21 +63,24 @@ pc→Desktop→cmd prompt→ FTP 10.10.10.0 (then enter userid and pass)(dir,hel
 Cmd prompt → ping www.flipcart.com <br>
 
 wireshark→ ethernet →(search) <b>ip.addr</b>==163.53.76.86
-###########################################################################################################<br>
 
-𝓗 <br>
+#####################################################################################<br>
+
+𝓗 (IPsec (ESP and AH)) <br>
 
 <img width="504" height="242" alt="H" src="https://github.com/user-attachments/assets/f7f2846e-53b9-4c82-a95b-7540e2155b2f" /> <img width="562" height="319" alt="HH" src="https://github.com/user-attachments/assets/fc75a4e4-70dc-4ca2-85e1-658ed9ac7be1" />
 
 Cmd prompt → ping www.wekipedia.com <br>
 wireshark→ ethernet →(search) <b>ip.addr</b>==(ip)
-###########################################################################################################<br>
 
-𝓘 <br>
+#####################################################################################<br>
 
-###########################################################################################################<br>
+𝓘 (DHCP) <br>
+
+#####################################################################################<br>
 
 𝓙 (DNS) <br>
+
 `````````````
 importsocket
 defdns_lookup():
