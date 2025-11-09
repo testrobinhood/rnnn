@@ -85,42 +85,52 @@ then connect remaining cables <br>
 Server→Desktop→IP Config → Ipv4 Address=10.0.0.1 <br>
 Server→Services→ DHCP→ Default Gateway =10.0.0.1 → Save → ON services(at top) <br>
 
+check
+pc→Desktop→IP Config →(click on DHCP) (do same for all devices) <br>
+
+to send message feom pc1 to pc2 <br>
+click pc2 → cmd prompt → ping 10.0.0.2 <br>
 
 #####################################################################################<br>
 
 𝓙 (DNS) <br>
 
 `````````````
-importsocket
-defdns_lookup():
-"""
-PerformsDNSlookups,convertingIPtohostnameandvice-versa. """
-whileTrue:
-print("\nDNS Lookup Tool")
-print("1.IPAddresstoHostname")
-print("2.HostnametoIPAddress")
-print("3. Exit")
-choice=input("Enteryourchoice(1,2,or3):")
-ifchoice =='1':
-ip_address=input("EntertheIPaddress:") try:
-hostname = socket.gethostbyaddr(ip_address)[0]
-print(f"Hostnamefor{ip_address}:{hostname}")
-exceptsocket.herror:
-print(f"CouldnotfindhostnameforIPaddress:{ip_address}") except
-Exception as e:
-print(f"Anerroroccurred:{e}")
-elif choice == '2':
-hostname=input("Enterthehostname:") try:
-ip_address=socket.gethostbyname(hostname)
-print(f"IPaddressfor{hostname}:{ip_address}") except
-socket.gaierror:
-print(f"CouldnotfindIPaddressforhostname:{hostname}") except
-Exception as e:
-print(f"Anerroroccurred:{e}")
-elif choice == '3':
-print("ExitingDNSLookupTool.") break
-else:
-print("Invalidchoice.Pleaseenter1,2,or3.")
-if name == "main":
-dns_lookup()
+import socket
+def dns_lookup():
+  """
+  Performs DNS lookups, converting IP to hostname and vice-versa.
+  """
+  while True:
+    print("\nDNS Lookup Tool")
+    print("1. IP Address to Hostname")
+    print("2. Hostname to IP Address")
+    print("3. Exit")
+    choice = input("Enter your choice (1, 2, or 3):")
+    if choice == '1':
+      ip_address = input("Enter the IP address:")
+      try:
+        hostname = socket.gethostbyaddr(ip_address)[0]
+        print(f"Hostname for {ip_address}: {hostname}")
+      except socket.herror:
+        print(f"Could not find hostname for IP address: {ip_address}")
+      except Exception as e:
+        print(f"An error occurred: {e}")
+    elif choice == '2':
+      hostname = input("Enter the hostname:")
+      try:
+        ip_address = socket.gethostbyname(hostname)
+        print(f"IP address for {hostname}: {ip_address}")
+      except socket.gaierror:
+        print(f"Could not find IP address for hostname: {hostname}")
+      except Exception as e:
+        print(f"An error occurred: {e}")
+    elif choice == '3':
+      print("Exiting DNS Lookup Tool.")
+      break
+    else:
+      print("Invalid choice. Please enter 1, 2, or 3.")
+
+if __name__ == "__main__":
+  dns_lookup()
 ``````````````````````````````````````
