@@ -23,6 +23,7 @@ to send message (PC→Desktop→Command prompt→Ping 192.168.0.5)
 ###########################################################################################################<br>
 
 𝓒 (layer 2 Switch ) <br>
+
 <img width="476" height="213" alt="C" src="https://github.com/user-attachments/assets/1b6519a3-06cd-42d9-95c6-4a61be6cac5b" /> <br>
 Connect pc(FE0) to switch(FE0/1) with 3rd cable <br>
 Connect Switch(gb 0/1) to router(gb 0/0) <br>
@@ -36,15 +37,76 @@ to send message use cmd prompt → Ping (IP Address) <br>
 𝕯 (WAN) <br>
 
 ###########################################################################################################<br>
-𝓔 <br>
-###########################################################################################################<br>
-𝓕 <br>
-###########################################################################################################<br>
-𝓖 <br>
-###########################################################################################################<br>
-𝓗 <br>
-###########################################################################################################<br>
-𝓘 <br>
-###########################################################################################################<br>
-𝓙 <br>
 
+𝓔 <br>
+
+
+###########################################################################################################<br>
+
+𝓕 (HTTP,HTTPS,FTP) <br>
+
+<img width="139" height="175" alt="F" src="https://github.com/user-attachments/assets/e2e8cb2c-5ea7-471c-977d-5ff22b58af47" /> <br>
+Connect pcs to switch and server through 1st cable <br>
+Server→Desktop→IP Config→IPV4 Address=10.10.10.0 <br>
+pc1→Desktop→IP Config→IPV4 Address=10.10.10.1 <br>
+pc2→Desktop→IP Config→IPV4 Address=10.10.10.2 <br>
+then Server→Services(Off other services)→FTP(set username & Pass ,click add)br>
+pc→Desktop→cmd prompt→ FTP 10.10.10.0 (then enter userid and pass)(dir,help,put) <br>
+###########################################################################################################<br>
+
+𝓖 (SSL) <br>
+
+<img width="476" height="221" alt="G" src="https://github.com/user-attachments/assets/23f86f85-409f-4a9f-933a-316400e1afe9" />  <img width="558" height="318" alt="GG" src="https://github.com/user-attachments/assets/7fb1b607-cc89-4cfa-aab5-adcc968dae28" />
+
+Cmd prompt → ping www.flipcart.com <br>
+
+wireshark→ ethernet →(search) <b>ip.addr</b>==163.53.76.86
+###########################################################################################################<br>
+
+𝓗 <br>
+
+<img width="504" height="242" alt="H" src="https://github.com/user-attachments/assets/f7f2846e-53b9-4c82-a95b-7540e2155b2f" /> <img width="562" height="319" alt="HH" src="https://github.com/user-attachments/assets/fc75a4e4-70dc-4ca2-85e1-658ed9ac7be1" />
+
+Cmd prompt → ping www.wekipedia.com <br>
+wireshark→ ethernet →(search) <b>ip.addr</b>==(ip)
+###########################################################################################################<br>
+
+𝓘 <br>
+
+###########################################################################################################<br>
+
+𝓙 (DNS) <br>
+`````````````
+importsocket
+defdns_lookup():
+"""
+PerformsDNSlookups,convertingIPtohostnameandvice-versa. """
+whileTrue:
+print("\nDNS Lookup Tool")
+print("1.IPAddresstoHostname")
+print("2.HostnametoIPAddress")
+print("3. Exit")
+choice=input("Enteryourchoice(1,2,or3):")
+ifchoice =='1':
+ip_address=input("EntertheIPaddress:") try:
+hostname = socket.gethostbyaddr(ip_address)[0]
+print(f"Hostnamefor{ip_address}:{hostname}")
+exceptsocket.herror:
+print(f"CouldnotfindhostnameforIPaddress:{ip_address}") except
+Exception as e:
+print(f"Anerroroccurred:{e}")
+elif choice == '2':
+hostname=input("Enterthehostname:") try:
+ip_address=socket.gethostbyname(hostname)
+print(f"IPaddressfor{hostname}:{ip_address}") except
+socket.gaierror:
+print(f"CouldnotfindIPaddressforhostname:{hostname}") except
+Exception as e:
+print(f"Anerroroccurred:{e}")
+elif choice == '3':
+print("ExitingDNSLookupTool.") break
+else:
+print("Invalidchoice.Pleaseenter1,2,or3.")
+if name == "main":
+dns_lookup()
+``````````````````````````````````````
