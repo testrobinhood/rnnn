@@ -77,6 +77,10 @@ wireshark→ ethernet →(search) <b>ip.addr</b>==(ip)
 
 𝓘 (DHCP) <br>
 
+<img width="287" height="263" alt="I" src="https://github.com/user-attachments/assets/6d174c3f-f9cd-424c-9fd7-fd639222739e" /> <br>
+
+
+
 #####################################################################################<br>
 
 𝓙 (DNS) <br>
