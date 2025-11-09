@@ -37,10 +37,106 @@ to send message use cmd prompt → Ping (IP Address) <br>
 
 𝕯 (WAN) <br>
 
+<img width="281" height="205" alt="D" src="https://github.com/user-attachments/assets/22e72c28-4600-497c-b087-4765ea1f7422" />
+
+
 #####################################################################################<br>
 
 𝓔 (TCP)<br>
 
+a. Say Hello to Each other
+````````````````````````````````````
+import socket
+import threading
+import time
+
+HOST = '127.0.0.1'  # localhost
+PORT = 5001
+
+def server():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind((HOST, PORT))
+        s.listen()
+        print("[Server] Listening for connections...")
+        conn, addr = s.accept()
+        with conn:
+            print(f"[Server] Connected by {addr}")
+            client_msg = conn.recv(1024).decode()
+            print(f"[Server] Client says: {client_msg}")
+            conn.sendall("Hello from Server!".encode())
+
+def client():
+    time.sleep(1)  # Wait for server to start
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((HOST, PORT))
+        print("[Client] Connected to server")
+        s.sendall("Hello from Client!".encode())
+        server_msg = s.recv(1024).decode()
+        print(f"[Client] Server says: {server_msg}")
+
+# Run the server in a separate thread
+server_thread = threading.Thread(target=server)
+server_thread.start()
+
+# Run client on main thread
+client()
+
+server_thread.join()
+print("Done.")
+
+
+```````````````````````````````````````````
+
+b.File transfer 
+
+```````````````
+import socket
+import threading
+import time
+import os
+HOST = '127.0.0.1' # localhost
+PORT = 5002
+BUFFER_SIZE = 4096
+FILE_TO_SEND = "file_to_send.txt"
+RECEIVED_FILE = "received_file.txt"
+def server():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind((HOST, PORT))
+        s.listen()
+        print("[Server] Listening for incoming connections...")
+        conn, addr = s.accept()
+        with conn:
+            print(f"[Server] Connected by {addr}")
+            with open(RECEIVED_FILE, 'wb') as f:
+                while True:
+                    data = conn.recv(BUFFER_SIZE)
+                    if not data:
+                        break
+                    f.write(data)
+            print(f"[Server] File received and saved as'{RECEIVED_FILE}'.")
+def client():
+    time.sleep(1) # Wait for server to start
+    # Create sample file if not exists
+    if not os.path.exists(FILE_TO_SEND):
+        with open(FILE_TO_SEND, 'w') as f:
+            f.write("This is a sample file sent from the client.\n" * 10)
+    with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
+        s.connect((HOST, PORT))
+        print("[Client] Connected to server")
+        with open(FILE_TO_SEND, 'rb') as f:
+            while True:
+                bytes_read = f.read(BUFFER_SIZE)
+                if not bytes_read:
+                    break
+                s.sendall(bytes_read)
+        print(f"[Client] File '{FILE_TO_SEND}' sent successfully.")
+# Run server and client using threads
+server_thread = threading.Thread(target=server)
+server_thread.start()
+client()
+server_thread.join()
+print("File transfer complete.")
+`````````````````````````````
 
 #####################################################################################<br>
 
