@@ -26,7 +26,8 @@ to send message (PC→Desktop→Command prompt→Ping 192.168.0.5)
 𝓒 (layer 2 Switch ) <br>
 
 <img width="476" height="213" alt="C" src="https://github.com/user-attachments/assets/1b6519a3-06cd-42d9-95c6-4a61be6cac5b" /> <br>
-Connect (all pcs) pc(FE0) to switch(FE0/1) with 3rd cable <br>
+Connect pc(FE0) to switch(FE0/1) with 3rd cable (connect for all pcs same) <br>
+
 Connect Switch(gb 0/1) to router(gb 0/0) <br>
 PCs→Config → Gateway:192.168.1.254 (Default for all pcs) <br>
 then click (AT INTERFACE) fastEthernet0→ Ip Addtess:192.168.1.1 (change ip for every pc) <br>
